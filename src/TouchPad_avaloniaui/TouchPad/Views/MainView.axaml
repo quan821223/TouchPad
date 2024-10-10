@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:TouchPad.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TouchPad.Views.MainView"
+             xmlns:reactiveui="http://reactiveui.net"
+             xmlns:avaloniauiTool="https://github.com/avaloniaui"
+             x:DataType="vm:MainViewModel">
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+        to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainViewModel />
+    </Design.DataContext>
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+    <Grid Margin="12">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--<TextBlock FontSize="16" FontWeight="SemiBold" Grid.Column="0"
+        VerticalAlignment="Center" Text="Search for: "/>-->
+        <TextBox Grid.Column="1" Margin="6 0 0 0" x:Name="searchTextBox" />
+
+        <avaloniauiTool:ListBox x:Name="searchResultsListBox" Grid.ColumnSpan="2"
+                                Grid.Row="1" Margin="0,6,0,0"
+                                ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+
+        <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+    </Grid>
+</UserControl>
